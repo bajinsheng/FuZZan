@@ -22,10 +22,6 @@ wget --retry-connrefused --tries=100 releases.llvm.org/7.0.0/llvm-7.0.0.src.tar.
 tar -xf llvm-7.0.0.src.tar.xz
 mv llvm-7.0.0.src llvm
 rm llvm-7.0.0.src.tar.xz
-
-pushd llvm/tools
-ln -s ../../clang .
-popd
 fi
 
 #get Clang
@@ -42,11 +38,16 @@ wget --retry-connrefused --tries=100 releases.llvm.org/7.0.0/compiler-rt-7.0.0.s
 tar -xf compiler-rt-7.0.0.src.tar.xz
 mv compiler-rt-7.0.0.src compiler-rt
 rm compiler-rt-7.0.0.src.tar.xz
+fi
 
 pushd llvm/projects
 ln -s ../../compiler-rt .
 popd
-fi
+
+pushd llvm/tools
+ln -s ../../clang .
+popd
+
 
 # install ASAN source codes
 ./scripts/install-asan-files.sh
