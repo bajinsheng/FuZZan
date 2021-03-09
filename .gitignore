@@ -1,0 +1,9 @@
+afl/afl-2.52b-native/
+LLVM/build/
+LLVM/clang/
+LLVM/compiler-rt/
+LLVM/llvm/
+afl/afl-2.52b-native/
+afl/afl-2.52b
+etc/libshrink/test
+sample/applications/build_*
