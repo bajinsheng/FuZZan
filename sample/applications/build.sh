@@ -39,7 +39,7 @@ export AFL_PATH=${ROOT}/../../afl/afl-2.52b
 export BUILD="shared"
 
 [ ! -e ${ROOT}/testsuite/"$1" ] && echo "${1} is not a target app" && exit 1
-
+rm -rf ${ROOT}/$2/"$1"
 mkdir -p ${ROOT}/$2/"$1"
 pushd ${ROOT}/$2/"$1"
 
@@ -66,7 +66,9 @@ export FUZZAN_MODE=1
 build_llvm 1
 
 cd $PATHROOT
-echo "build native"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build native--------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE  -O2"
 export CXXFLAGS="-U_FORTIFY_SOURCE  -O2"
@@ -79,7 +81,9 @@ export FUZZAN_MODE=1
 build_llvm 1
 
 cd $PATHROOT
-echo "build asan"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build asan----------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE  -O2 -fsanitize=address"
 export CXXFLAGS="-U_FORTIFY_SOURCE  -O2 -fsanitize=address"
@@ -92,7 +96,9 @@ export FUZZAN_MODE=2
 build_llvm 2
 
 cd $PATHROOT
-echo "build asan-opt"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build asan-opt------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE -O2 -fsanitize=address"
 export CXXFLAGS="-U_FORTIFY_SOURCE -O2 -fsanitize=address"
@@ -105,7 +111,9 @@ export FUZZAN_MODE=3
 build_llvm 3
 
 cd $PATHROOT
-echo "build rbtree"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build rbtree--------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE  -O2 -fsanitize=address"
 export CXXFLAGS="-U_FORTIFY_SOURCE  -O2 -fsanitize=address"
@@ -119,7 +127,9 @@ build_llvm 4
 export MINMODE_ON=1
 
 cd $PATHROOT
-echo "build min"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build shadow--------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CXXFLAGS="-U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
@@ -138,7 +148,9 @@ export SHM_STR="."
 export SHM_INT=7
 
 cd $PATHROOT
-echo "build fuzzan"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build sampling------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CXXFLAGS="-U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
@@ -152,7 +164,9 @@ build_llvm 4
 export MINMODE_ON=1
 
 cd $PATHROOT
-echo "build min"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build  1G-----------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CXXFLAGS="-U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
@@ -166,7 +180,9 @@ build_llvm 5
 export MINMODE_ON=4
 
 cd $PATHROOT
-echo "build min"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build  4G-----------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CXXFLAGS="-U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
@@ -180,7 +196,9 @@ build_llvm 6
 export MINMODE_ON=8
 
 cd $PATHROOT
-echo "build min"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build  8G-----------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CXXFLAGS="-U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
@@ -194,7 +212,9 @@ build_llvm 7
 export MINMODE_ON=16
 
 cd $PATHROOT
-echo "build min"
+echo "----------------------------------------------------------------------------------"
+echo "--------------------------build 16G-----------------------------------------------"
+echo "----------------------------------------------------------------------------------"
 export LDFLAGS="-lstdc++ -fuse-ld=bfd -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CFLAGS="-lstdc++ -U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
 export CXXFLAGS="-U_FORTIFY_SOURCE -O2 -fsanitize=address -mcmodel=small"
