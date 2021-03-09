@@ -30,7 +30,7 @@ export MINSHADOW_PATH_16G="$(pwd)/../build_min-16G/binutils/prelink-$1/$1"
 export RBTREE_PATH="$(pwd)/../build_rbtree/binutils/$1"
 
 export MINMODE_ON="0"
-export MIN_SCRIPT_PATH="/home/jeon41/FuZZan/etc/libshrink/"
+export MIN_SCRIPT_PATH="$(pwd)/../../../etc/libshrink/"
 
 if [ $1 == "tcpdump" ]
 then

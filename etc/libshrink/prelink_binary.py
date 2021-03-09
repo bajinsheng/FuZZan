@@ -24,9 +24,9 @@ def ex(cmd, env_override=None):
             stderr=subprocess.PIPE, env=env)
     p.wait()
     if p.returncode:
-        print "Error while executing command '%s': %d" % (cmd, p.returncode)
-        print "stdout: '%s'" % p.stdout.read()
-        print "stderr: '%s'" % p.stderr.read()
+        print("Error while executing command '%s': %d" % (cmd, p.returncode))
+        print("stdout: '%s'" % p.stdout.read())
+        print("stderr: '%s'" % p.stderr.read())
         raise Exception("Error while executing command")
     return p.stdout.read()
 
@@ -136,7 +136,7 @@ def prelink_libs(libs, outdir, existing_mappings, baseaddr=0xf0ffffff):
                 else:
                     found = True
 
-            print "Found %08x - %08x for %s" % (baseaddr, baseaddr + size, lib)
+            print("Found %08x - %08x for %s" % (baseaddr, baseaddr + size, lib))
             ex("prelink -r 0x%x \"%s\"" % (baseaddr, newlib))
 
 
@@ -178,9 +178,9 @@ def main():
     if not args.out_dir:
         outdir = os.path.abspath("prelink-%s" % args.binary.replace("/", "_"))
 
-    print "[ShrinkAddrSpace] for %s, using output dir %s, linked %s" % \
+    print("[ShrinkAddrSpace] for %s, using output dir %s, linked %s" % \
             (args.binary, outdir, "statically" if args.static_lib else
-            "dynamically")
+            "dynamically"))
     if os.path.isdir(outdir):
         shutil.rmtree(outdir)
     os.mkdir(outdir)

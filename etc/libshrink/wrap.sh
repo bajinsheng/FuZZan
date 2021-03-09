@@ -13,7 +13,7 @@ if [ ! -f $prog ]; then
     [ ! -f $prog ] && { echo "Could not find $prog here nor in PATH"; exit 1; }
 fi
 
-"$DIR/prelink_binary.py" --set-rpath "$prog" --preload-lib "$DIR/libshrink-preload.so" --out-dir "$prelink_dir" --min-shadow-mode "$min_mode"
+python2 "$DIR/prelink_binary.py" --set-rpath "$prog" --preload-lib "$DIR/libshrink-preload.so" --out-dir "$prelink_dir" --min-shadow-mode "$min_mode"
 
 #export ASAN_OPTIONS=detect_leaks=0
 #newprog="$prelink_dir/`basename "$prog"`"
