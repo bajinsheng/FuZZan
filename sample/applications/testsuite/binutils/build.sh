@@ -1,5 +1,5 @@
 #!/bin/bash
-. $(dirname $0)/../common.sh
+#. $(dirname $0)/../common.sh
 
 [ ! -e binutils-2.31.90.tar.xz ] && wget ftp://sourceware.org/pub/binutils/snapshots/binutils-2.31.90.tar.xz
 [ ! -e binutils-2.31.90 ] && tar -xf binutils-2.31.90.tar.xz
